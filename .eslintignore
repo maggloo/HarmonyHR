@@ -1,0 +1,5 @@
+*.json
+*.config.*
+*.types.ts
+.yml
+.yaml
