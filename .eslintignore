@@ -1,5 +1,6 @@
 *.json
 *.config.*
 *.types.ts
+*.graphql
 .yml
 .yaml
