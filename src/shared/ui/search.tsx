@@ -13,7 +13,10 @@ export const SearchComponent = ({ placeholder, className }: SearchComponentProps
             <Input
                 type="search"
                 placeholder={placeholder || 'Search'}
-                className={cn('pl-8 sm:w-[300px] md:w-[200px] lg:w-[300px]', className)}
+                className={cn(
+                    'pl-8 w-[48px] sm:w-[48px] md:w-[100px] lg:w-[100px] xl:w-[200px]',
+                    className
+                )}
             />
         </div>
     )

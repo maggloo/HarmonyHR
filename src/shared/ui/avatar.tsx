@@ -11,7 +11,7 @@ export const Avatar = ({ className, image, size }: Props) => {
     return (
         <div
             className={cn(
-                'relative overflow-hidden flex items-center justify-center rounded-full',
+                'relative overflow-hidden flex items-center justify-center rounded-full z-40',
                 className
             )}
             style={{ height: `${size}px`, width: `${size}px` }}
