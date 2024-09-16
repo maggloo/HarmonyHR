@@ -1,5 +1,14 @@
-export const CompTime = () => (
-    <svg width="34" height="33" viewBox="0 0 34 33" fill="none" xmlns="http://www.w3.org/2000/svg">
+import { SVGProps } from 'react'
+
+export const CompTime = (props: SVGProps<SVGSVGElement>) => (
+    <svg
+        width="34"
+        height="33"
+        viewBox="0 0 34 33"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        {...props}
+    >
         <path
             d="M24 23.5V29.5C24 29.8978 23.842 30.2794 23.5607 30.5607C23.2794 30.842 22.8978 31 22.5 31H3C2.60218 31 2.22064 30.842 1.93934 30.5607C1.65804 30.2794 1.5 29.8978 1.5 29.5V5.5C1.5 5.10218 1.65804 4.72064 1.93934 4.43934C2.22064 4.15804 2.60218 4 3 4H13.5"
             stroke="#1C3144"
