@@ -1,23 +1,24 @@
-import * as Types from '../../../schema.types';
+import * as Types from '../../../../src/shared/lib/apollo/schema.types'
 
-import { gql } from '@apollo/client';
-import * as Apollo from '@apollo/client';
-const defaultOptions = {} as const;
-export type MyProfileQueryVariables = Types.Exact<{ [key: string]: never; }>;
+import { gql } from '@apollo/client'
+import * as Apollo from '@apollo/client'
+const defaultOptions = {} as const
+export type MyProfileQueryVariables = Types.Exact<{ [key: string]: never }>
 
-
-export type MyProfileQuery = { __typename?: 'Query', profile: { __typename?: 'User', id: string, avatar: string, name: string } };
-
+export type MyProfileQuery = {
+    __typename?: 'Query'
+    profile: { __typename?: 'User'; id: string; avatar: string; name: string }
+}
 
 export const MyProfileDocument = gql`
     query MyProfile {
-  profile: myProfile {
-    id
-    avatar
-    name
-  }
-}
-    `;
+        profile: myProfile {
+            id
+            avatar
+            name
+        }
+    }
+`
 
 /**
  * __useMyProfileQuery__
@@ -34,19 +35,31 @@ export const MyProfileDocument = gql`
  *   },
  * });
  */
-export function useMyProfileQuery(baseOptions?: Apollo.QueryHookOptions<MyProfileQuery, MyProfileQueryVariables>) {
-        const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useQuery<MyProfileQuery, MyProfileQueryVariables>(MyProfileDocument, options);
-      }
-export function useMyProfileLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<MyProfileQuery, MyProfileQueryVariables>) {
-          const options = {...defaultOptions, ...baseOptions}
-          return Apollo.useLazyQuery<MyProfileQuery, MyProfileQueryVariables>(MyProfileDocument, options);
-        }
-export function useMyProfileSuspenseQuery(baseOptions?: Apollo.SkipToken | Apollo.SuspenseQueryHookOptions<MyProfileQuery, MyProfileQueryVariables>) {
-          const options = baseOptions === Apollo.skipToken ? baseOptions : {...defaultOptions, ...baseOptions}
-          return Apollo.useSuspenseQuery<MyProfileQuery, MyProfileQueryVariables>(MyProfileDocument, options);
-        }
-export type MyProfileQueryHookResult = ReturnType<typeof useMyProfileQuery>;
-export type MyProfileLazyQueryHookResult = ReturnType<typeof useMyProfileLazyQuery>;
-export type MyProfileSuspenseQueryHookResult = ReturnType<typeof useMyProfileSuspenseQuery>;
-export type MyProfileQueryResult = Apollo.QueryResult<MyProfileQuery, MyProfileQueryVariables>;
+export function useMyProfileQuery(
+    baseOptions?: Apollo.QueryHookOptions<MyProfileQuery, MyProfileQueryVariables>
+) {
+    const options = { ...defaultOptions, ...baseOptions }
+    return Apollo.useQuery<MyProfileQuery, MyProfileQueryVariables>(MyProfileDocument, options)
+}
+export function useMyProfileLazyQuery(
+    baseOptions?: Apollo.LazyQueryHookOptions<MyProfileQuery, MyProfileQueryVariables>
+) {
+    const options = { ...defaultOptions, ...baseOptions }
+    return Apollo.useLazyQuery<MyProfileQuery, MyProfileQueryVariables>(MyProfileDocument, options)
+}
+export function useMyProfileSuspenseQuery(
+    baseOptions?:
+        | Apollo.SkipToken
+        | Apollo.SuspenseQueryHookOptions<MyProfileQuery, MyProfileQueryVariables>
+) {
+    const options =
+        baseOptions === Apollo.skipToken ? baseOptions : { ...defaultOptions, ...baseOptions }
+    return Apollo.useSuspenseQuery<MyProfileQuery, MyProfileQueryVariables>(
+        MyProfileDocument,
+        options
+    )
+}
+export type MyProfileQueryHookResult = ReturnType<typeof useMyProfileQuery>
+export type MyProfileLazyQueryHookResult = ReturnType<typeof useMyProfileLazyQuery>
+export type MyProfileSuspenseQueryHookResult = ReturnType<typeof useMyProfileSuspenseQuery>
+export type MyProfileQueryResult = Apollo.QueryResult<MyProfileQuery, MyProfileQueryVariables>

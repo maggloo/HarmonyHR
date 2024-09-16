@@ -1,25 +1,29 @@
-import * as Types from '../../../schema.types';
+import * as Types from '../../../../../src/shared/lib/apollo/schema.types'
 
-import { gql } from '@apollo/client';
-import * as Apollo from '@apollo/client';
-const defaultOptions = {} as const;
+import { gql } from '@apollo/client'
+import * as Apollo from '@apollo/client'
+const defaultOptions = {} as const
 export type RefreshTokenMutationVariables = Types.Exact<{
-  refreshToken: Types.Scalars['String']['input'];
-}>;
+    refreshToken: Types.Scalars['String']['input']
+}>
 
-
-export type RefreshTokenMutation = { __typename?: 'Mutation', refreshToken: { __typename?: 'Login', access_token: string, refresh_token: string } };
-
+export type RefreshTokenMutation = {
+    __typename?: 'Mutation'
+    refreshToken: { __typename?: 'Login'; access_token: string; refresh_token: string }
+}
 
 export const RefreshTokenDocument = gql`
     mutation RefreshToken($refreshToken: String!) {
-  refreshToken(refreshToken: $refreshToken) {
-    access_token
-    refresh_token
-  }
-}
-    `;
-export type RefreshTokenMutationFn = Apollo.MutationFunction<RefreshTokenMutation, RefreshTokenMutationVariables>;
+        refreshToken(refreshToken: $refreshToken) {
+            access_token
+            refresh_token
+        }
+    }
+`
+export type RefreshTokenMutationFn = Apollo.MutationFunction<
+    RefreshTokenMutation,
+    RefreshTokenMutationVariables
+>
 
 /**
  * __useRefreshTokenMutation__
@@ -38,10 +42,18 @@ export type RefreshTokenMutationFn = Apollo.MutationFunction<RefreshTokenMutatio
  *   },
  * });
  */
-export function useRefreshTokenMutation(baseOptions?: Apollo.MutationHookOptions<RefreshTokenMutation, RefreshTokenMutationVariables>) {
-        const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useMutation<RefreshTokenMutation, RefreshTokenMutationVariables>(RefreshTokenDocument, options);
-      }
-export type RefreshTokenMutationHookResult = ReturnType<typeof useRefreshTokenMutation>;
-export type RefreshTokenMutationResult = Apollo.MutationResult<RefreshTokenMutation>;
-export type RefreshTokenMutationOptions = Apollo.BaseMutationOptions<RefreshTokenMutation, RefreshTokenMutationVariables>;
+export function useRefreshTokenMutation(
+    baseOptions?: Apollo.MutationHookOptions<RefreshTokenMutation, RefreshTokenMutationVariables>
+) {
+    const options = { ...defaultOptions, ...baseOptions }
+    return Apollo.useMutation<RefreshTokenMutation, RefreshTokenMutationVariables>(
+        RefreshTokenDocument,
+        options
+    )
+}
+export type RefreshTokenMutationHookResult = ReturnType<typeof useRefreshTokenMutation>
+export type RefreshTokenMutationResult = Apollo.MutationResult<RefreshTokenMutation>
+export type RefreshTokenMutationOptions = Apollo.BaseMutationOptions<
+    RefreshTokenMutation,
+    RefreshTokenMutationVariables
+>
