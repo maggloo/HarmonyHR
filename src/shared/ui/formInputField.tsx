@@ -1,7 +1,7 @@
 import { FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/shared/ui/form'
 import { Input } from '@/shared/ui/input'
 import { Control, FieldPath } from 'react-hook-form'
-import { LoginFormValues } from '@/features/auth/lib/loginFormSchema'
+import { LoginFormValues } from '@/features/auth/login/lib/loginFormSchema'
 
 type FormInputField = {
     control: Control<LoginFormValues>

@@ -1,7 +1,6 @@
 import { Tabs, TabsList, TabsTrigger } from '@/shared/ui/tabs'
 import Link from 'next/link'
 import { ROUTES_URL } from '@/shared/const/routes'
-import { EllipsisVertical, Menu } from 'lucide-react'
 
 const TABS_NAMES = {
     HOME: 'Home',

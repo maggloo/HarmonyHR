@@ -1,6 +1,5 @@
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/shared/ui/table'
-import { MoveDown, X } from 'lucide-react'
-import { Select, SelectTrigger, SelectValue } from '@/shared/ui/select'
+import { MoveDown } from 'lucide-react'
 import * as React from 'react'
 import { TableFilters } from '@/widgets/profile/tableFilters/TableFilters'
 const TIME_OFF_COLUMNS = [
